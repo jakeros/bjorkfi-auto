@@ -37,3 +37,34 @@ Real API integration: Replace the API call placeholder with actual API integrati
 Feel free to expand the functionality and improve the user experience of the Bjorkfi Trader app based on your requirements.
 
 Remember to update the documentation as you add new features or modify existing functionality.
+
+Here's a suggestion for managing the API:
+
+Create a new file named api.py in your project directory.
+
+In the api.py file, define functions or classes to handle the API operations. For example, you can have a function called execute_trade(api_key, secret_key, trade_data) that performs the actual trade execution based on the provided API key, secret key, and trade data.
+
+Implement the necessary API integration logic within the functions or classes in api.py. This can include making HTTP requests, processing API responses, and handling errors.
+
+Once you have implemented the API functionality in api.py, you can import and use it in your main_window.py file. For example, you can import the execute_trade function from api.py and call it in the submit() method of the MainWindow class
+
+from api import execute_trade
+
+# ...
+
+def submit(self):
+    api_key = self.e1_main.get()
+    secret_key = self.e2_main.get()
+    trade_data = # Get the trade data from the UI elements
+    
+    # Call the API function
+    result = execute_trade(api_key, secret_key, trade_data)
+
+    if result:  # If the API call was successful
+        messagebox.showinfo("Success", "Your trade was executed successfully!")
+    else:  # If the API call failed
+        messagebox.showerror("Error", "An error occurred. Please contact support.")
+
+
+By separating the API-related code into a dedicated module, you can keep your codebase organized and maintain a clear separation of concerns. It also allows for easier testing and maintenance of the API functionality.
+
