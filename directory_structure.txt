@@ -1,0 +1,7 @@
+bjorkfi-trader/
+|-- main.py
+|-- gui/
+|   |-- login.py
+|   |-- main_window.py
+|-- database/
+|   |-- models.py
